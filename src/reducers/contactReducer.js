@@ -5,30 +5,10 @@ import {
 } from '../actions/types'
 
 const initialState = { 
-    contacts: [
-        {
-            id: 1,
-            name: 'John Doe',
-            email: 'john@gmail.com',
-            phone: '555-555-5555'
-        },
-        {
-            id: 2,
-            name: 'Karen Williams',
-            email: 'karen@gmail.com',
-            phone: '444-444-4444'
-        },
-        {
-            id: 3,
-            name: 'Henry Johnson',
-            email: 'henry@gmail.com',
-            phone: '333-333-333'
-        }
-    ]
+    contacts: []
 };
 
 export default function (state = initialState, action) {
-    console.log(action.payload)
     switch(action.type) {
         case ADD_CONTACT: {
            return {
@@ -45,7 +25,8 @@ export default function (state = initialState, action) {
         }
         case GET_CONTACTS:
             return {
-                ...state
+                ...state,
+                contacts: action.payload
             };
         default: 
             return state;
